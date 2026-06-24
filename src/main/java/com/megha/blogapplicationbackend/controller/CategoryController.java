@@ -2,6 +2,7 @@ package com.megha.blogapplicationbackend.controller;
 
 import com.megha.blogapplicationbackend.dto.CategoryDTO;
 import com.megha.blogapplicationbackend.service.CategoryService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @PostMapping
-    public ResponseEntity<CategoryDTO> createCategory(@RequestBody CategoryDTO categoryDTO) {
+    public ResponseEntity<CategoryDTO> createCategory(@Valid @RequestBody CategoryDTO categoryDTO) {
         CategoryDTO createdCategory = categoryService.createCategory(categoryDTO);
         return new ResponseEntity<>(createdCategory, HttpStatus.CREATED);
     }
@@ -44,7 +45,7 @@ public class CategoryController {
     @PutMapping("/{id}")
     public ResponseEntity<CategoryDTO> updateCategory(
             @PathVariable Long id,
-            @RequestBody CategoryDTO categoryDTO
+            @Valid @RequestBody CategoryDTO categoryDTO
     ) {
         CategoryDTO updatedCategory = categoryService.updateCategory(id, categoryDTO);
         return ResponseEntity.ok(updatedCategory);

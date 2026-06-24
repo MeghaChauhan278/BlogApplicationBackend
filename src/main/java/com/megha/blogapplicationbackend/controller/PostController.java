@@ -2,6 +2,7 @@ package com.megha.blogapplicationbackend.controller;
 
 import com.megha.blogapplicationbackend.dto.PostDTO;
 import com.megha.blogapplicationbackend.service.PostService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class PostController {
     private final PostService postService;
 
     @PostMapping
-    public ResponseEntity<PostDTO> createPost(@RequestBody PostDTO postDTO) {
+    public ResponseEntity<PostDTO> createPost(@Valid @RequestBody PostDTO postDTO) {
         PostDTO createdPost = postService.createPost(postDTO);
         return new ResponseEntity<>(createdPost, HttpStatus.CREATED);
     }
@@ -44,7 +45,7 @@ public class PostController {
     @PutMapping("/{id}")
     public ResponseEntity<PostDTO> updatePost(
             @PathVariable Long id,
-            @RequestBody PostDTO postDTO
+            @Valid @RequestBody PostDTO postDTO
     ) {
         PostDTO updatedPost = postService.updatePost(id, postDTO);
         return ResponseEntity.ok(updatedPost);

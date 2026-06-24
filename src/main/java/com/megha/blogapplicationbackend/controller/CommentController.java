@@ -2,6 +2,7 @@ package com.megha.blogapplicationbackend.controller;
 
 import com.megha.blogapplicationbackend.dto.CommentDTO;
 import com.megha.blogapplicationbackend.service.CommentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @PostMapping
-    public ResponseEntity<CommentDTO> createComment(@RequestBody CommentDTO commentDTO) {
+    public ResponseEntity<CommentDTO> createComment(@Valid @RequestBody CommentDTO commentDTO) {
         CommentDTO createdComment = commentService.createComment(commentDTO);
         return new ResponseEntity<>(createdComment, HttpStatus.CREATED);
     }
@@ -44,7 +45,7 @@ public class CommentController {
     @PutMapping("/{id}")
     public ResponseEntity<CommentDTO> updateComment(
             @PathVariable Long id,
-            @RequestBody CommentDTO commentDTO
+            @Valid @RequestBody CommentDTO commentDTO
     ) {
         CommentDTO updatedComment = commentService.updateComment(id, commentDTO);
         return ResponseEntity.ok(updatedComment);
