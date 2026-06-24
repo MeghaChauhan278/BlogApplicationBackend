@@ -1,5 +1,7 @@
 # Blog Application Backend
 
+GitHub Repository: https://github.com/MeghaChauhan278/BlogApplicationBackend
+
 A beginner-friendly Spring Boot backend for a simple blog application. This project provides REST APIs to manage categories, posts, and comments using Spring Boot, Spring Data JPA, and MySQL.
 
 ## Project Overview
@@ -15,6 +17,18 @@ This backend allows you to:
 
 The project currently focuses only on backend CRUD APIs. Authentication, pagination, search, security, and advanced features are not added yet.
 
+## Features
+
+- Category CRUD APIs
+- Post CRUD APIs
+- Comment CRUD APIs
+- MySQL Database Integration
+- DTO Pattern Implementation
+- Layered Architecture
+- Entity Relationships using JPA
+- Request Validation using Jakarta Validation
+- API Testing with Postman
+  
 ## Technologies Used
 
 - Java 21
@@ -25,6 +39,40 @@ The project currently focuses only on backend CRUD APIs. Authentication, paginat
 - MySQL
 - Lombok
 - Maven
+
+## Project Structure
+
+src/main/java/com/megha/blogapplicationbackend
+
+├── controller
+│   ├── CategoryController
+│   ├── PostController
+│   └── CommentController
+│
+├── dto
+│   ├── CategoryDTO
+│   ├── PostDTO
+│   └── CommentDTO
+│
+├── entity
+│   ├── Category
+│   ├── Post
+│   └── Comment
+│
+├── repository
+│   ├── CategoryRepository
+│   ├── PostRepository
+│   └── CommentRepository
+│
+├── service
+│   ├── CategoryService
+│   ├── PostService
+│   └── CommentService
+│
+└── service/impl
+    ├── CategoryServiceImpl
+    ├── PostServiceImpl
+    └── CommentServiceImpl
 
 ## Architecture Diagram
 
@@ -352,3 +400,12 @@ Comment:
 - `content` cannot be blank
 
 If a required field is blank, Spring Boot returns a validation error response.
+
+## Future Improvements
+
+- Spring Security Authentication
+- JWT Based Authorization
+- Pagination and Sorting
+- Search Functionality
+- Swagger API Documentation
+- Docker Containerization
