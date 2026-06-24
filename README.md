@@ -42,6 +42,9 @@ The project currently focuses only on backend CRUD APIs. Authentication, paginat
 
 ## Project Structure
 
+## Project Structure
+
+```text
 src/main/java/com/megha/blogapplicationbackend
 
 ├── controller
@@ -73,6 +76,7 @@ src/main/java/com/megha/blogapplicationbackend
     ├── CategoryServiceImpl
     ├── PostServiceImpl
     └── CommentServiceImpl
+```
 
 ## Architecture Diagram
 
